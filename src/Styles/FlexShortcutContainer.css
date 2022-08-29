@@ -1,0 +1,10 @@
+.section-title {
+    padding-top: 5vmin;
+}
+
+.flex-shortcut-container {
+    justify-content: space-evenly;
+    align-items: center;
+    flex-flow: wrap;
+    padding: 0 7.5vmin;
+}

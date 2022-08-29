@@ -1,0 +1,50 @@
+.round-shortcut-link {
+    border-radius: 5vmin;
+}
+
+.shortcut {
+    border-radius: inherit;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.shortcut-1 {
+    height: 300px;
+    width: 300px;
+}
+
+.shortcut-2 {
+    height: 300px;
+    width: 500px;
+}
+
+.shortcut-3 {
+    height: 500px;
+    width: 300px;
+}
+
+.shortcut-default {
+    height: 30vmin;
+    width: 30vmin;
+}
+
+.shortcut-overlay {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    border-radius: inherit;
+    background-color: var(--hover-trans);
+}
+
+.shortcut-overlay>h2 {
+    margin: 0 2vmin;
+    font-size: 4vmin;
+}
+
+.shortcut-overlay>summary {
+    margin: 0 2vmin;
+    font-size: 2vmin;
+}

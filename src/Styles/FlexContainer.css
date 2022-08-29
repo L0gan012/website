@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 90%;
+    padding: 3vmin;
+    margin: 5vmin;
+    border-radius: 1vmin;
+    background-color: var(--dark);
+}
+
+.container > div {
+    width: 20%;
+}
+
+.container > p {
+    width: 80%;
+}

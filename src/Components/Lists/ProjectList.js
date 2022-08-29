@@ -1,0 +1,67 @@
+import ProjectGreenThumb from '../../Pages/ProjectGreenThumb.js';
+import WIP from '../../Pages/WIP.js';
+
+const projects = [
+    {
+        title: 'Green Thumb',
+        caption: "Don't know when to water your plants? Me either...",
+        description: "this is the longer version of the description",
+        path: '/ProjectGreenThumb',
+        exact: true,
+        main: <ProjectGreenThumb/>,
+        iconImg: 'https://www.studiomoross.com/app/uploads/2018/06/Cheese_Plant.gif',
+        cardImg: 'https://t3.ftcdn.net/jpg/02/11/52/30/360_F_211523086_hz7lYqqsS5No5RX4vWLzLuGK7iIRoCfL.jpg',
+        categories: ['Raspberry Pi', 'Plants'],
+        cName: 'project',
+    },
+    {
+        title: '2048',
+        caption: "Want to play a game? Try 2048",
+        description: "this is the longer version of the description",
+        path: '/2048',
+        exact: true,
+        main: <WIP/>,
+        iconImg: 'https://thumbs.gfycat.com/OddImpishEasteuropeanshepherd-size_restricted.gif',
+        cardImg: '',
+        categories: ['Game'],
+        cName: 'project',
+    },
+    {
+        title: 'Playlister',
+        caption: "Need some tunes?",
+        description: "this is the longer version of the description",
+        path: '/Playlister',
+        exact: true,
+        main: <WIP/>,
+        iconImg: 'https://i.gadgets360cdn.com/large/spotify_logo_1585741714525.jpg',
+        cardImg: '',
+        categories: ['Music'],
+        cName: 'project',
+    },
+    {
+        title: 'Menu Maker',
+        caption: "Tired of the same food?",
+        description: "this is the longer version of the description",
+        path: '/MenuMaker',
+        exact: true,
+        main: <WIP/>,
+        iconImg: 'https://mkpcdn.com/1000x/808622ffde0a56124445aad720a653dc_916293.gif',
+        cardImg: '',
+        categories: ['Food'],
+        cName: 'project',
+    },
+    {
+        title: 'Menu Maker',
+        caption: "Tired of the same food?",
+        description: "this is the longer version of the description",
+        path: '/MenuMaker',
+        exact: true,
+        main: <WIP/>,
+        iconImg: 'https://mkpcdn.com/1000x/808622ffde0a56124445aad720a653dc_916293.gif',
+        cardImg: '',
+        categories: ['Food'],
+        cName: 'project',
+    },
+];
+
+export default projects;

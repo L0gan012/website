@@ -1,0 +1,30 @@
+.headshot-container {
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 20vmin 5vmin;
+}
+
+.headshot {
+    height: 50vmin;
+    width: 50vmin;
+    border-radius: 3vmin;
+}
+
+.bio {
+    width: 40%;
+}
+
+.bio > h3 {
+    margin-top: 4vmin;
+}
+
+@media (max-width: 1250px) {
+    .headshot-container {
+        flex-direction: column;
+    }
+
+    .bio {
+        margin-top: 10vmin;
+        width: 80%;
+    }
+}

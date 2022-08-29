@@ -1,0 +1,60 @@
+const artPieces =  [
+    {
+        title: 'Keith Haring - Skateboarder',
+        caption: "Ollie time",
+        description: "this is the longer version of the description",
+        path: 'testpath',
+        iconImg: 'https://i.pinimg.com/originals/6d/c5/c6/6dc5c62f38022d2c4dd5604c46ced6fb.jpg',
+        cName: 'art-piece',
+    },
+    {
+        title: 'samplePiece1',
+        caption: "Oh shit my wrench!?!",
+        description: "this is the longer version of the description",
+        path: 'testpath',
+        iconImg: 'https://www.studiomoross.com/app/uploads/2018/06/Cheese_Plant.gif',
+        cName: 'art-piece',
+    },
+    {
+        title: 'samplePiece1',
+        caption: "Oh shit my wrench!?!",
+        description: "this is the longer version of the description",
+        path: 'testpath',
+        iconImg: 'https://www.studiomoross.com/app/uploads/2018/06/Cheese_Plant.gif',
+        cName: 'art-piece',
+    },
+    {
+        title: 'samplePiece1',
+        caption: "Oh shit my wrench!?!",
+        description: "this is the longer version of the description",
+        path: 'testpath',
+        iconImg: 'https://www.studiomoross.com/app/uploads/2018/06/Cheese_Plant.gif',
+        cName: 'art-piece',
+    },
+    {
+        title: 'samplePiece1',
+        caption: "Oh shit my wrench!?!",
+        description: "this is the longer version of the description",
+        path: 'testpath',
+        iconImg: 'https://www.studiomoross.com/app/uploads/2018/06/Cheese_Plant.gif',
+        cName: 'art-piece',
+    },
+    {
+        title: 'samplePiece1',
+        caption: "Oh shit my wrench!?!",
+        description: "this is the longer version of the description",
+        path: 'testpath',
+        iconImg: 'https://www.studiomoross.com/app/uploads/2018/06/Cheese_Plant.gif',
+        cName: 'art-piece',
+    },
+    {
+        title: 'samplePiece1',
+        caption: "Oh shit my wrench!?!",
+        description: "this is the longer version of the description",
+        path: 'testpath',
+        iconImg: 'https://www.studiomoross.com/app/uploads/2018/06/Cheese_Plant.gif',
+        cName: 'art-piece',
+    },
+];
+
+export default artPieces;

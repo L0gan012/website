@@ -1,0 +1,17 @@
+.long-card {
+    height: 50vmin;
+    margin-bottom: 2vmin;
+    background-color: var(--alternate);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.long-card-overlay {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: inherit;
+    width: 100%;
+    background-color: var(--hover-trans);
+}

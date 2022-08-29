@@ -1,0 +1,9 @@
+.home-logo {
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s;
+}
+
+.home-logo:hover, .menu-btn:hover {
+    color: var(--alternate);
+}

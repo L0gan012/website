@@ -11,31 +11,45 @@ import { useFrame } from "@react-three/fiber";
 import { useEffect, useRef, useState } from "react";
 
 export function Skull(props: any) {
-  //TODO: Finish implementing mouse tracking
+  const [isHovering, setIsHovering] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   useEffect(() => {
     addEventListener("mousemove", (e) => {
-      console.log("X: ", e.clientX, " Y: ", e.clientY);
       setMousePosition({ x: e.clientX, y: e.clientY });
     });
     return () => removeEventListener("mousemove", () => {});
   }, []);
 
+  const calculateRotation = (position: number, boundarySize: number) => {
+    const middle = boundarySize / 2;
+    if (position < middle) {
+      return position / middle - 1;
+    } else if (position > middle) {
+      return (position - middle) / (boundarySize - middle);
+    }
+    return 0;
+  };
+
   const { nodes, materials } = useGLTF("/skull/scene.gltf");
-  const ref = useRef({ rotation: { x: 0, y: 0 } });
+  const ref = useRef({ rotation: { x: 0, y: 0, z: 0 } });
   useFrame((state, delta) => {
-    ref.current.rotation.x += delta;
-    ref.current.rotation.y += delta;
+    ref.current.rotation.z = calculateRotation(
+      mousePosition.x,
+      window.innerWidth
+    );
+    ref.current.rotation.x =
+      calculateRotation(mousePosition.y, window.innerHeight) - Math.PI / 2;
   });
   return (
     <group {...props} dispose={null}>
       <mesh
         ref={ref}
+        onPointerEnter={() => setIsHovering(true)}
+        onPointerLeave={() => setIsHovering(false)}
         castShadow
         receiveShadow
         geometry={nodes.Object_2.geometry}
         material={materials.defaultMat}
-        rotation={[-Math.PI / 2, 0, 0]}
       />
     </group>
   );

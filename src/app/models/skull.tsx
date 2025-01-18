@@ -6,13 +6,22 @@ Source: https://sketchfab.com/3d-models/skull-downloadable-1a9db900738d44298b0bc
 Title: Skull downloadable
 */
 
+import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { useEffect, useRef, useState } from "react";
+import { Mesh } from "three";
 
 export function Skull(props: any) {
-  const [isHovering, setIsHovering] = useState(false);
+  const router = useRouter();
+  // Load in model
+  const { nodes, materials } = useGLTF("/skull/scene.gltf");
+  materials.defaultMat.transparent = true;
+  // Model reference to mutate
+  const ref = useRef<Mesh>(null!);
+  // Set up mouse states
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  // Attach mousemove event listener (destroy on unmount)
   useEffect(() => {
     addEventListener("mousemove", (e) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
@@ -20,18 +29,15 @@ export function Skull(props: any) {
     return () => removeEventListener("mousemove", () => {});
   }, []);
 
+  // Calculate rotation of model based on mouse position
   const calculateRotation = (position: number, boundarySize: number) => {
     const middle = boundarySize / 2;
-    if (position < middle) {
-      return position / middle - 1;
-    } else if (position > middle) {
+    if (position < middle) return position / middle - 1;
+    else if (position > middle)
       return (position - middle) / (boundarySize - middle);
-    }
     return 0;
   };
 
-  const { nodes, materials } = useGLTF("/skull/scene.gltf");
-  const ref = useRef({ rotation: { x: 0, y: 0, z: 0 } });
   useFrame((state, delta) => {
     ref.current.rotation.z = calculateRotation(
       mousePosition.x,
@@ -40,12 +46,17 @@ export function Skull(props: any) {
     ref.current.rotation.x =
       calculateRotation(mousePosition.y, window.innerHeight) - Math.PI / 2;
   });
+
   return (
     <group {...props} dispose={null}>
       <mesh
         ref={ref}
-        onPointerEnter={() => setIsHovering(true)}
-        onPointerLeave={() => setIsHovering(false)}
+        onPointerEnter={() => (materials.defaultMat.opacity = 0.5)}
+        onPointerLeave={() => (materials.defaultMat.opacity = 1)}
+        onClick={() => {
+          console.log("clicked model!");
+          router.push("/gallery");
+        }}
         castShadow
         receiveShadow
         geometry={nodes.Object_2.geometry}

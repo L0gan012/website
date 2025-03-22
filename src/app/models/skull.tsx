@@ -12,7 +12,7 @@ import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { Mesh } from "three";
 
-export function Skull(props: any) {
+export function Skull(props: object) {
   const router = useRouter();
   // Load in model
   const { nodes, materials } = useGLTF("/skull/scene.gltf");
@@ -38,7 +38,7 @@ export function Skull(props: any) {
     return 0;
   };
 
-  useFrame((state, delta) => {
+  useFrame(() => {
     ref.current.rotation.z = calculateRotation(
       mousePosition.x,
       window.innerWidth
@@ -59,7 +59,7 @@ export function Skull(props: any) {
         }}
         castShadow
         receiveShadow
-        geometry={nodes.Object_2.geometry}
+        geometry={(nodes.Object_2 as Mesh).geometry}
         material={materials.defaultMat}
       />
     </group>

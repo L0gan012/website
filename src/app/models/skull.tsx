@@ -9,10 +9,10 @@ Title: Skull downloadable
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useGLTF } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
+import { ThreeElements, useFrame } from "@react-three/fiber";
 import { Mesh } from "three";
 
-export function Skull(props: object) {
+export function Skull(props: ThreeElements["mesh"]) {
   const router = useRouter();
   // Load in model
   const { nodes, materials } = useGLTF("/skull/scene.gltf");
@@ -21,6 +21,7 @@ export function Skull(props: object) {
   const ref = useRef<Mesh>(null!);
   // Set up mouse states
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [material, setMaterial] = useState(materials.defaultMat);
   // Attach mousemove event listener (destroy on unmount)
   useEffect(() => {
     addEventListener("mousemove", (e) => {
@@ -48,21 +49,32 @@ export function Skull(props: object) {
   });
 
   return (
-    <group {...props} dispose={null}>
-      <mesh
-        ref={ref}
-        onPointerEnter={() => (materials.defaultMat.opacity = 0.5)}
-        onPointerLeave={() => (materials.defaultMat.opacity = 1)}
-        onClick={() => {
-          console.log("clicked model!");
-          router.push("/gallery");
-        }}
-        castShadow
-        receiveShadow
-        geometry={(nodes.Object_2 as Mesh).geometry}
-        material={materials.defaultMat}
-      />
-    </group>
+    <mesh
+      {...props}
+      ref={ref}
+      onPointerEnter={() => {
+        setMaterial((prev) => {
+          const updatedMaterial = prev.clone();
+          updatedMaterial.opacity = 0.5;
+          return updatedMaterial;
+        });
+      }}
+      onPointerLeave={() => {
+        setMaterial((prev) => {
+          const updatedMaterial = prev.clone();
+          updatedMaterial.opacity = 1;
+          return updatedMaterial;
+        });
+      }}
+      onClick={() => {
+        console.log("clicked model!");
+        router.push("/gallery");
+      }}
+      castShadow
+      receiveShadow
+      geometry={(nodes.Object_2 as Mesh).geometry}
+      material={material}
+    />
   );
 }
 

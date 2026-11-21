@@ -13,7 +13,11 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import Link from "next/link";
 
-const pages = ["Projects", "Pottery", "Gallery"];
+const pages = [
+  { label: "Tech", href: "/tech" },
+  { label: "Pottery", href: "/pottery" },
+  { label: "Woodworking", href: "/woodworking" },
+];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -87,8 +91,8 @@ function ResponsiveAppBar() {
               sx={{ display: { xs: "block", md: "none" } }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Link href={`/${page.toLowerCase()}`}>{page}</Link>
+                <MenuItem key={page.href} onClick={handleCloseNavMenu}>
+                  <Link href={page.href}>{page.label}</Link>
                 </MenuItem>
               ))}
             </Menu>
@@ -114,7 +118,7 @@ function ResponsiveAppBar() {
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
-                key={page}
+                key={page.href}
                 onClick={handleCloseNavMenu}
                 sx={{
                   my: 2,
@@ -126,7 +130,7 @@ function ResponsiveAppBar() {
                   textTransform: "uppercase",
                 }}
               >
-                <Link href={`/${page.toLowerCase()}`}>{page}</Link>
+                <Link href={page.href}>{page.label}</Link>
               </Button>
             ))}
           </Box>

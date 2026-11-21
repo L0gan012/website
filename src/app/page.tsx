@@ -25,8 +25,8 @@ export default function Home() {
     {
       number: "01",
       eyebrow: "Code & design",
-      title: "Projects",
-      href: "/projects",
+      title: "Tech",
+      href: "/tech",
       color: "#aabfaf",
     },
     {
@@ -38,9 +38,9 @@ export default function Home() {
     },
     {
       number: "03",
-      eyebrow: "Notes in progress",
-      title: "Gallery",
-      href: "/gallery",
+      eyebrow: "Wood & grain",
+      title: "Woodworking",
+      href: "/woodworking",
       color: "#cfccdf",
     },
   ];
@@ -86,7 +86,7 @@ export default function Home() {
           <Box sx={{ display: "flex", flexDirection: { xs: "column", sm: "row" }, alignItems: { xs: "flex-start", sm: "center" }, gap: 3.5, mt: 4.5 }}>
             <Button
               component={NextLink}
-              href="/projects"
+              href="/tech"
               variant="contained"
               disableElevation
               endIcon={<Box component="span" sx={{ fontSize: 18 }}>↗</Box>}
@@ -225,7 +225,7 @@ export default function Home() {
                     {card.number}
                   </Typography>
                   <Box sx={{ height: 290, position: "relative", overflow: "hidden" }}>
-                    {card.title === "Projects" && (
+                    {card.title === "Tech" && (
                       <Box sx={{ position: "absolute", left: 24, right: 24, top: 24, bottom: 0, border: `1px solid ${ink}`, borderBottom: 0, bgcolor: "#edf0e8" }}>
                         <Box sx={{ position: "absolute", width: "74%", height: "76%", left: "13%", top: "18%", border: `1px solid ${ink}`, bgcolor: "#edf0e8", transform: "perspective(500px) rotateY(-7deg)" }} />
                         <Box sx={{ position: "absolute", width: "28%", height: "58%", right: "4%", bottom: 0, border: `1px solid ${ink}`, bgcolor: "#efb95e", transform: "skewY(-12deg)" }} />
@@ -240,10 +240,11 @@ export default function Home() {
                         </Box>
                       </>
                     )}
-                    {card.title === "Gallery" && (
+                    {card.title === "Woodworking" && (
                       <>
-                        <Box sx={{ position: "absolute", width: 160, height: 210, left: "13%", bottom: -12, transform: "rotate(-5deg)", border: `1px solid ${ink}`, bgcolor: "#ece5d2", boxShadow: "12px 12px 0 #9f9bb8" }} />
-                        <Box sx={{ position: "absolute", width: 130, height: 130, right: "12%", top: 82, transform: "rotate(8deg)", border: `1px solid ${ink}`, borderRadius: "50%", bgcolor: "#d7a3a1", boxShadow: "8px 8px 0 #eeefdf" }} />
+                        <Box sx={{ position: "absolute", width: 210, height: 36, left: "50%", bottom: 58, transform: "translateX(-50%) rotate(-8deg)", border: `1px solid ${ink}`, bgcolor: "#f0dcc0" }} />
+                        <Box sx={{ position: "absolute", width: 180, height: 130, left: "50%", bottom: 86, transform: "translateX(-50%) rotate(5deg)", border: `1px solid ${ink}`, bgcolor: "#b7835d", backgroundImage: "linear-gradient(90deg, transparent 45%, rgba(23,32,29,.18) 46%, transparent 48%)", backgroundSize: "24px 100%" }} />
+                        <Box sx={{ position: "absolute", width: 56, height: 56, right: "13%", top: 58, transform: "rotate(18deg)", border: `1px solid ${ink}`, bgcolor: "#ece5d2" }} />
                       </>
                     )}
                   </Box>

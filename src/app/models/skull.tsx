@@ -16,6 +16,7 @@ export function Skull(props: ThreeElements["mesh"]) {
   const router = useRouter();
   // Load in model
   const { nodes, materials } = useGLTF("/skull/scene.gltf");
+  //
   materials.defaultMat.transparent = true;
   // Model reference to mutate
   const ref = useRef<Mesh>(null!);
@@ -24,6 +25,8 @@ export function Skull(props: ThreeElements["mesh"]) {
   const [material, setMaterial] = useState(materials.defaultMat);
   // Attach mousemove event listener (destroy on unmount)
   useEffect(() => {
+    console.log("skull nodes", nodes);
+    console.log("skull materials", materials);
     addEventListener("mousemove", (e) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     });
@@ -42,7 +45,7 @@ export function Skull(props: ThreeElements["mesh"]) {
   useFrame(() => {
     ref.current.rotation.z = calculateRotation(
       mousePosition.x,
-      window.innerWidth
+      window.innerWidth,
     );
     ref.current.rotation.x =
       calculateRotation(mousePosition.y, window.innerHeight) - Math.PI / 2;
@@ -78,4 +81,4 @@ export function Skull(props: ThreeElements["mesh"]) {
   );
 }
 
-useGLTF.preload("/skull_downloadable/scene.gltf");
+// useGLTF.preload("/skull_downloadable/scene.gltf");

@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import "./globals.css";
 import ResponsiveAppBar from "./components/Appbar/Appbar";
+import Footer from "./components/Footer/Footer";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -33,6 +34,7 @@ export default function RootLayout({
         <AppRouterCacheProvider>
           <ResponsiveAppBar />
           {children}
+          <Footer />
         </AppRouterCacheProvider>
       </body>
     </html>
